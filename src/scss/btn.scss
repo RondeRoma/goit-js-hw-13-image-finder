@@ -1,0 +1,29 @@
+
+
+.btn-more {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 15px 0;
+    width: 250px;
+    background-color: #dff706ec;
+    color: #32a9cdd7;
+    border: 2px solid  #ff7f50;
+    border-radius: 12px;
+    cursor: pointer;
+    outline: none;
+}
+
+.button.is-hidden {
+  display: none;
+}
+
+.button > .spinner.is-hidden {
+  display: none;
+}

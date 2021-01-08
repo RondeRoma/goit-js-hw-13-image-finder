@@ -1,0 +1,23 @@
+@import './scss/form.scss';
+@import './scss/photoCard.scss';
+@import './scss/btn.scss';
+@import './scss/lightbox.scss';
+@import './scss/icons.scss';
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+	background-blend-mode: screen;
+	background:
+		linear-gradient(#32cd32, transparent) fixed,
+		linear-gradient(90deg, #87ceeb, transparent) fixed,
+		linear-gradient(-90deg, #ff7f50, transparent) fixed;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>dz13</title>
+  </head>
+
+  <body>
+    <form class="search-form" id="search-form">
+      <input
+        type="text"
+        class="search-form__input"
+        name="query"
+        autocomplete="off"
+        placeholder="Что ищем?"
+      />
+      <button class="searchBtn" type="submit"></button>
+    </form>
+
+    <ul class="gallery"></ul>
+    
+
+    <div class="btn-more">
+      <button
+        type="button"
+        class="btn btn-primary button"
+        data-action="load-more"
+      >
+        <span
+          class="spinner-border spinner-border-sm spinner is-hidden"
+          role="status"
+          aria-hidden="true"
+        ></span>
+        <span class="label">Загрузим ещё чутка?</span>
+      </button>
+    </div>
+    <!-- <div class="lightbox js-lightbox">
+      <div class="lightbox__overlay">
+        <div class="lightbox__content">
+          <img class="lightbox__image" src="#" alt="picture" />
+        </div>
+
+        <button
+          type="button"
+          class="lightbox__button"
+          data-action="close-lightbox"
+        ></button>
+      </div>
+    </div> -->
+    <script>
+      async function showImageOnload(id) {
+        const imgtoLoad = document.querySelector(`img[data-id="${id}"]`);
+        if (imgtoLoad) {
+          imgtoLoad.classList.remove('hidden');
+          imgtoLoad.dataset.id += '_';
+        }
+      }
+    </script>
+  </body>
+</html>
