@@ -9,7 +9,7 @@ export default class ImageApiServise {
     const url = `?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${this.API_Key}`;
     const params = await fetch(this.BASE_URL + url);
     const parseParameters = await params.json();
-    this.incrementPage;
+    this.incrementPage();
     return parseParameters.hits;
   }
 
