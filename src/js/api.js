@@ -12,6 +12,7 @@ export default class ImageApiServise {
         this.incrementPage.hits;
         return parseParameters.hits;
     }
+    
     incrementPage(){
         this.page +=1;
     }

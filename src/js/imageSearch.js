@@ -62,7 +62,7 @@ function openModal(e) {
 
 function openImg({ src, alt }) {
   const instance = basicLightbox.create(
-    `<img class="photo-card__image" src="${src} alt=${alt}" />`,
+    `<img class="photo-card__image" src="${src}" alt="${alt}" />`,
   );
   instance.show();
 }
