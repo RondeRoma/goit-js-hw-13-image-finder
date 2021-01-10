@@ -2,10 +2,8 @@ import imgCards from '../templates/images.hbs';
 import getRefs from '../js/refs.js';
 import ImageApiServise from '../js/api.js';
 import BtnLoadMore from '../js/btnLoadMore.js';
+import notifications from '../js/notification.js'
 import * as basicLightbox from 'basiclightbox';
-import '@pnotify/core/dist/PNotify.css';
-import '@pnotify/core/dist/BrightTheme.css';
-import { error } from '@pnotify/core';
 
 const imageApiServise = new ImageApiServise();
 const btnLoadMore = new BtnLoadMore({
@@ -28,6 +26,7 @@ function onSearch(e) {
   btnLoadMore.show();
   imageApiServise.resetPage();
   imageApiServise.searchQuery = input.value;
+  if (imageApiServise.searchQuery === '') notifications.alert();
 
   fetchImage();
   input.value = '';
@@ -36,10 +35,13 @@ function onSearch(e) {
 function fetchImage() {
   btnLoadMore.disable();
   imageApiServise.fetchImage().then(data => {
+    // console.log(data);
+    if (data.length === 0) notifications.error();
     const murkup = createImageList(data);
     appendImageMurkup(murkup);
     btnLoadMore.enable();
     onScrollTo();
+
   });
 }
 
@@ -68,7 +70,7 @@ function openImg({ src, alt }) {
 }
 
 function onScrollTo() {
-  let value = document.body.scrollHeight;
+  let value = document.documentElement.offsetHeight; //document.body.scrollHeight; //windows.innerHeight
   setTimeout(() => {
     window.scrollTo({
       top: value,
