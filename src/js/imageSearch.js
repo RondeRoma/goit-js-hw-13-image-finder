@@ -26,7 +26,10 @@ function onSearch(e) {
   btnLoadMore.show();
   imageApiServise.resetPage();
   imageApiServise.searchQuery = input.value;
-  if (imageApiServise.searchQuery === '') notifications.alert();
+  if (imageApiServise.searchQuery === '') {
+    btnLoadMore.hide()
+    return notifications.alert();
+  } 
 
   fetchImage();
   input.value = '';
@@ -35,11 +38,18 @@ function onSearch(e) {
 function fetchImage() {
   btnLoadMore.disable();
   imageApiServise.fetchImage().then(data => {
-    // console.log(data);
-    if (data.length === 0) notifications.error();
+    console.log(data.length);
+    if (data.length === 0) {
+     
+      return notifications.error();
+    }
     const murkup = createImageList(data);
     appendImageMurkup(murkup);
+    
     btnLoadMore.enable();
+    if(data.length<6) {
+      btnLoadMore.hide();
+    };
     onScrollTo();
 
   });
