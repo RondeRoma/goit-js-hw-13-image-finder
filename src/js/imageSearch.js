@@ -38,10 +38,8 @@ function onSearch(e) {
 function fetchImage() {
   btnLoadMore.disable();
   imageApiServise.fetchImage().then(data => {
-    console.log(data.length);
-    if (data.length === 0) {
-     
-      return notifications.error();
+        if (data.length === 0) {
+        return notifications.error();
     }
     const murkup = createImageList(data);
     appendImageMurkup(murkup);
