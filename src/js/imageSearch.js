@@ -39,6 +39,7 @@ function fetchImage() {
   btnLoadMore.disable();
   imageApiServise.fetchImage().then(data => {
         if (data.length === 0) {
+        btnLoadMore.hide()
         return notifications.error();
     }
     const murkup = createImageList(data);
